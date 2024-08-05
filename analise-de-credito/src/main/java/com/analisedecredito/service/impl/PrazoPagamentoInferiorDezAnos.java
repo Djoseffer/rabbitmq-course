@@ -1,0 +1,13 @@
+package com.analisedecredito.service.impl;
+
+import com.analisedecredito.domain.Proposta;
+import com.analisedecredito.service.strategy.CalculoPonto;
+import org.springframework.stereotype.Component;
+
+@Component
+public class PrazoPagamentoInferiorDezAnos implements CalculoPonto {
+    @Override
+    public int calcular(Proposta proposta) {
+        return proposta.getPrazoPagamento() < 120 ? 80 : 0;
+    }
+}
